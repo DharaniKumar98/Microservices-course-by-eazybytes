@@ -34,11 +34,14 @@ import org.springframework.web.bind.annotation.*;
 )
 @RestController
 @RequestMapping(path = "/api", produces = {MediaType.APPLICATION_JSON_VALUE})
-@AllArgsConstructor
 @Validated
 public class LoansController {
 
     private ILoansService iLoansService;
+
+    public LoansController(ILoansService iLoansService) {
+        this.iLoansService = iLoansService;
+    }
 
     @Autowired
     private Environment environment;

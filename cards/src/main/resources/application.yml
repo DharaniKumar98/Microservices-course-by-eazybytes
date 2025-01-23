@@ -1,6 +1,10 @@
 server:
   port: 9000
 spring:
+  application:
+    name: "cards"
+  profiles:
+    active: "prod"
   datasource:
     url: jdbc:h2:mem:testdb
     username: sa
@@ -15,21 +19,22 @@ spring:
       ddl-auto: update
     show-sql: true
   config:
-    import:
-      - "application_qa.yml"
-      - "application_prod.yml"
-  profiles:
-    active:
-      - "qa"
+    import: "optional:configserver:http://localhost:8071/"
+#  cloud:
+#    config:
+#      fail-fast: true
+#      retry:
+#        initial-interval: 2000    # 1 second
+#        multiplier: 2.0          # Double the interval after each retry
+#        max-interval: 20000      # 10 seconds
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: "guest"
+    password: "guest"
 
-build:
-  version: "3.0"
-
-cards:
-  message: "Welcome to EazyBank cards related local APIs "
-  contactDetails:
-    name: "Dragos Lech - Developer"
-    email: "dragos@eazybank.com"
-  onCallSupport:
-    - (412) 419-3491
-    - (915) 382-1932
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
