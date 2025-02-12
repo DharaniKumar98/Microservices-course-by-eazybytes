@@ -25,13 +25,32 @@ management:
     health:
       probes:
         enabled: true
+#    shutdown:
+#      access: unrestricted
   health:
     readiness-state:
       enabled: true
     liveness-state:
       enabled: true
+#  info:
+#    env:
+#      enabled: true
 
 
+#eureka:
+#  instance:
+#    preferIpAddress: true
+#  client:
+#    fetchRegistry: true
+#    registerWithEureka: true
+#  serviceUrl:
+#    defaultZone: http://localhost:8070/eureka/
+#
+#info:
+#  app:
+#    name: configserver
+#    description: "EazyBank Configserver Application"
+#    version: 1.0.0
 
 encrypt:
   key: "45D81EC1EF61DF9AD8D3E5BB397F9"
