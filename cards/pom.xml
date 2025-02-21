@@ -131,7 +131,7 @@
 				<version>3.3.2</version>
 				<configuration>
 					<to>
-						<image>dharani912/${project.artifactId}:s8</image>
+						<image>dharani912/${project.artifactId}:s9</image>
 					</to>
 				</configuration>
 			</plugin>
